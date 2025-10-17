@@ -18,10 +18,6 @@ const HrSidebar = () => {
                 <FaTachometerAlt />
                 <span> HR Dashboard</span>
             </NavLink>
-            <NavLink to="/hr-dashboard/employees"
-             className={({isActive}) => `${isActive ? "bg-teal-500" : " "} flex items-center space-x-4 py-2.5 px-4 rounded`}end>
-                <FaUsers />
-                <span>Hr Profile</span>
             </NavLink>
             <NavLink to="/hr-dashboard/departments"
              className={({isActive}) => `${isActive ? "bg-teal-500" : " "} flex items-center space-x-4 py-2.5 px-4 rounded`}>
