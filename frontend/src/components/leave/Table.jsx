@@ -33,6 +33,8 @@ const Table = () => {
           }
         );
 
+        console.log("Leaves response:", response.data);
+
         if (response.data.success) {
           setLeaves(response.data.leaves);
         }
@@ -75,7 +77,7 @@ const Table = () => {
         <p className="mb-4">Found {leaves.length} leave(s)</p>
         
         <div className="space-y-4">
-          {leaves.map((leave, index) => (
+          {leaves.map((leave) => (
             <div key={leave._id} className="border rounded-lg p-4 bg-white shadow">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
@@ -105,7 +107,10 @@ const Table = () => {
                   <p className="text-sm text-gray-600">Action</p>
                   <button
                     className="px-3 py-1 bg-teal-600 text-white rounded hover:bg-teal-700"
-                    onClick={() => navigate(`/admin-dashboard/leaves/${leave._id}`)}
+                    onClick={() => {
+                      const basePath = user.role === 'admin' ? '/admin-dashboard' : '/Hr-dashboard';
+                      navigate(`${basePath}/leaves/${leave._id}`);
+                    }}
                   >
                     View Details
                   </button>
