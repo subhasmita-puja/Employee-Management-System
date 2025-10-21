@@ -1,6 +1,8 @@
 import Employee from '../models/Employee.js';
 import Leave from '../models/Leave.js';
+import mongoose from 'mongoose';
 
+// Add new leave - Works for employees
 const addLeave = async (req, res) => {
   try {
     const { userId, leaveType, startDate, endDate, reason } = req.body;
@@ -9,7 +11,12 @@ const addLeave = async (req, res) => {
       return res.status(400).json({ success: false, error: "All fields are required" });
     }
 
-    const employee = await Employee.findOne({ userId });
+    
+    const userObjectId = new mongoose.Types.ObjectId(userId);
+    
+    
+    const employee = await Employee.findOne({ userId: userObjectId });
+    
     if (!employee) {
       return res.status(404).json({ success: false, error: "Employee not found" });
     }
@@ -31,21 +38,29 @@ const addLeave = async (req, res) => {
   }
 };
 
+
 const getLeave = async (req, res) => {
   try {
     const { id, role } = req.params;
     let leaves;
     
-    if (role === "admin") {
+    // Admin and HR see ALL leaves
+    if (role === "admin" || role === "hr") {
       leaves = await Leave.find().populate({
         path: "employeeId",
         populate: [
           { path: 'department', select: 'dep_name' },
           { path: 'userId', select: 'name profileImage employeeId' }
         ]
-      });
-    } else {
-      const employee = await Employee.findOne({ userId: id });
+      }).sort({ createdAt: -1 });
+    } 
+   
+    else {
+      
+      const userObjectId = new mongoose.Types.ObjectId(id);
+      
+      const employee = await Employee.findOne({ userId: userObjectId });
+      
       if (!employee) {
         return res.status(404).json({ success: false, error: "Employee not found" });
       }
@@ -56,7 +71,7 @@ const getLeave = async (req, res) => {
           { path: 'department', select: 'dep_name' },
           { path: 'userId', select: 'name profileImage employeeId' }
         ]
-      });
+      }).sort({ createdAt: -1 });
     }
     
     return res.status(200).json({ success: true, leaves });
@@ -66,6 +81,7 @@ const getLeave = async (req, res) => {
   }
 };
 
+
 const getLeaves = async (req, res) => {
   try {
     const leaves = await Leave.find().populate({
@@ -74,7 +90,7 @@ const getLeaves = async (req, res) => {
         { path: 'department', select: 'dep_name' },
         { path: 'userId', select: 'name' }
       ]
-    });
+    }).sort({ createdAt: -1 });
 
     return res.status(200).json({ success: true, leaves });
   } catch (error) {
@@ -82,6 +98,7 @@ const getLeaves = async (req, res) => {
     return res.status(500).json({ success: false, error: "Leave retrieval server error" });
   }
 };
+
 
 const getLeaveDetail = async (req, res) => {
   try {
@@ -104,6 +121,7 @@ const getLeaveDetail = async (req, res) => {
     return res.status(500).json({ success: false, error: "Leave detail server error" });
   }
 };
+
 
 const updateLeave = async (req, res) => {
   try {
