@@ -6,10 +6,6 @@
   <img src="https://img.shields.io/badge/Role%20Based-Authentication-orange?style=for-the-badge" />
 </p>
 
-<p align="center">
-  🌐 <a href="#" target="_blank"><strong>Live Demo</strong></a> • 📘 <a href="./screenshots/">View Screenshots</a> • ⭐ <a href="https://github.com/subhasmita-puja/employee-management-system/stargazers">Give a Star</a>
-</p>
-
 ---
 
 ## 🧩 About the Project
@@ -44,6 +40,81 @@ It enables users to **create, store, and manage employee records**, while provid
 | 🎨 **Tailwind CSS** | For responsive design and modern UI |
 
 ---
+## 📂 Project Structure
+
+```
+employee-management-system/
+│
+├── backend/
+│   ├── server.js
+│   ├── routes/
+│   ├── models/
+│   ├── controllers/
+│   └── config/
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   ├── index.jsx
+│   │   └── styles/
+│
+├── screenshots/
+│   ├── login-page.png
+│   ├── admin-home.png
+│   ├── admin-dashboard.png
+│   ├── hr-dashboard.png
+│   └── employee-dashboard.png
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Installation and Setup
+
+```bash
+# 1️⃣ Clone the repository
+git clone https://github.com/your-username/employee-management-system.git
+cd employee-management-system
+
+# 2️⃣ Install backend dependencies
+cd backend
+npm install
+
+# 3️⃣ Install frontend dependencies
+cd ../frontend
+npm install
+```
+
+### 🧾 Setup Environment Variables
+
+Create a `.env` file inside the backend folder and add:
+
+```
+MONGODB_URL="mongodb://localhost:27017/ems"
+JWT_KEY = "jwtSecretKeyAAA33333@@@####8889999jjdd"
+PORT=5000
+```
+
+### ▶️ Run the Application
+
+```bash
+# Run backend
+cd backend
+npm start
+
+# Run frontend
+cd ../frontend
+npm run dev
+```
+
+The app will be available at:  
+👉 **Frontend:** http://localhost:5173  
+👉 **Backend API:** http://localhost:5000  
+
+---
 
 ## 🔒 Authentication and Authorization
 
@@ -68,6 +139,7 @@ It enables users to **create, store, and manage employee records**, while provid
 | **Department (HR)** | View department details | ![HR Department](./public/Hr-edm.png) |
 | **Attendance (HR)** | Monitor team attendance Approved or Reject | ![HR Attendance](./public/Hr-Ar.png) |
 | **Leave (Employee)** | Apply for leave and view leave status | ![Employee Leave](./public/employee-leaves.png) |
+| **Leave (Employee)** | Apply for leave and choose leave Types | ![Employee Leave](./public/employee-leave.png) |
 | **Attendance (Employee)** | View personal attendance records | ![Employee Attendance](./public/employee-Attendance.png) |
 
 
