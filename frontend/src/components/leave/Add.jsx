@@ -78,87 +78,89 @@ const Add = () => {
   }
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 bg-white p-8 rounded-md shadow-md">
-      <h2 className="text-2xl font-bold mb-6">Apply for Leave</h2>
-      
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            Leave Type <span className="text-red-500">*</span>
-          </label>
-          <select
-            name="leaveType"
-            value={leave.leaveType}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md"
-            required
-          >
-            <option value="">Select Leave Type</option>
-            <option value="Sick Leave">Sick Leave</option>
-            <option value="Casual Leave">Casual Leave</option>
-            <option value="Annual Leave">Annual Leave</option>
-          </select>
-        </div>
+    <div className="p-6">
+      <div className="max-w-2xl mx-auto bg-white p-8 rounded-md shadow-md">
+        <h2 className="text-2xl font-bold mb-6">Apply for Leave</h2>
+        
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Leave Type <span className="text-red-500">*</span>
+            </label>
+            <select
+              name="leaveType"
+              value={leave.leaveType}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md"
+              required
+            >
+              <option value="">Select Leave Type</option>
+              <option value="Sick Leave">Sick Leave</option>
+              <option value="Casual Leave">Casual Leave</option>
+              <option value="Annual Leave">Annual Leave</option>
+            </select>
+          </div>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            Start Date <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="date"
-            name="startDate"
-            value={leave.startDate}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md"
-            required
-          />
-        </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Start Date <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="date"
+              name="startDate"
+              value={leave.startDate}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md"
+              required
+            />
+          </div>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            End Date <span className="text-red-500">*</span>
-          </label>
-          <input
-            type="date"
-            name="endDate"
-            value={leave.endDate}
-            onChange={handleChange}
-            className="w-full px-3 py-2 border rounded-md"
-            required
-          />
-        </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              End Date <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="date"
+              name="endDate"
+              value={leave.endDate}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border rounded-md"
+              required
+            />
+          </div>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            Reason <span className="text-red-500">*</span>
-          </label>
-          <textarea
-            name="reason"
-            value={leave.reason}
-            onChange={handleChange}
-            rows="4"
-            className="w-full px-3 py-2 border rounded-md"
-            placeholder="Please provide a reason for your leave..."
-            required
-          />
-        </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Reason <span className="text-red-500">*</span>
+            </label>
+            <textarea
+              name="reason"
+              value={leave.reason}
+              onChange={handleChange}
+              rows="4"
+              className="w-full px-3 py-2 border rounded-md"
+              placeholder="Please provide a reason for your leave..."
+              required
+            />
+          </div>
 
-        <div className="flex gap-4">
-          <button
-            type="submit"
-            className="w-full bg-teal-600 text-white py-2 rounded-md hover:bg-teal-700"
-          >
-            Submit Application
-          </button>
-          <button
-            type="button"
-            onClick={() => navigate(`/employee-dashboard/leaves/${user.id}`)}
-            className="w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600"
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
+          <div className="flex gap-4">
+            <button
+              type="submit"
+              className="w-full bg-teal-600 text-white py-2 rounded-md hover:bg-teal-700"
+            >
+              Submit Application
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate(`/employee-dashboard/leaves/${user.id}`)}
+              className="w-full bg-gray-500 text-white py-2 rounded-md hover:bg-gray-600"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
