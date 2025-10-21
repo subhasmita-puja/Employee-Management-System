@@ -47,6 +47,7 @@ function App() {
           <Route path="departments/add" element={<AddDepartment />} />
           <Route path="department/:id" element={<EditDepartment />} />
           <Route path="departments/edit/:id" element={<EditDepartment />} />
+          <Route path="add-department" element={<AddDepartment />} />
 
           <Route path="employees" element={<List />} />
           <Route path="employees/edit/:id" element={<Edit />} />
@@ -61,6 +62,8 @@ function App() {
           <Route path="attendance" element={<Attendance />} />
           <Route path="attendance-report" element={<AttendanceReport />} />
         </Route>
+        <Route path="add-new-leave" element={<AddLeave />} />
+
 
       <Route path="/employee-dashboard" element={
   <PrivateRoutes>
@@ -96,6 +99,7 @@ function App() {
           <Route path="leaves" element={<Table />} />
           <Route path="leaves/:id" element={<Detail />} />
           <Route path="employees/leaves/:id" element={<LeaveList />} />
+          <Route path="add-department" element={<AddDepartment />} />
           <Route path="attendance" element={<Attendance />} />
           <Route path="attendance-report" element={<AttendanceReport />} />
         </Route>
