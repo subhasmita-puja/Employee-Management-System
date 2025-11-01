@@ -88,15 +88,6 @@ cd ../frontend
 npm install
 ```
 
-### 🧾 Setup Environment Variables
-
-Create a `.env` file inside the backend folder and add:
-
-```
-MONGODB_URL="mongodb://localhost:27017/ems"
-JWT_KEY = "jwtSecretKeyAAA33333@@@####8889999jjdd"
-PORT=5000
-```
 
 ### ▶️ Run the Application
 
